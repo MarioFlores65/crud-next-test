@@ -9,6 +9,9 @@ export default function UsersList() {
   const [email, setEmail] = useState ('')
   const [phone, setPhone] = useState ('')
 
+  const handleDelete = (i: number) => {
+  setUsers(users.filter((_, index) => index !== i))
+}
   const [editIndex, setEditIndex] = useState<number | null>(null)
   return (
     <div >
@@ -86,8 +89,12 @@ export default function UsersList() {
           <p className='text-white'>{user.gender}</p>
           <p className='text-white'>{user.email}</p>
           <p className='text-white'>{user.phone}</p>
+           <button className='bg-red-500 text-white px-4 py-2 rounded' onClick={() => handleDelete(street)}>Eliminar</button>
+
         </div>
       ))}
+
+
     </div>
   )
 }
